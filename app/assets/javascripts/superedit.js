@@ -214,6 +214,9 @@ return post_data;
 };
 
 SAVE_EVERYTHING = function() {
+  page = $('html').clone(true);
+  page = $(page).find('#super_editor_settings').remove();
+  page = $(page).find('#super_settings').remove();
   $.post('/save', {
     page: {
       source: ['<!DOCTYPE html><html>',$('html').html(),'</html>'].join(''),

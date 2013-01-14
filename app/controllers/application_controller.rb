@@ -7,8 +7,7 @@ class ApplicationController < ActionController::Base
   layout false
 
   def show
-    binding.pry
-    render html: lookup_page.source
+    render text: lookup_page.source, layout: false
   end
 
   def save

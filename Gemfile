@@ -22,5 +22,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'debugger'
+  gem 'pry'
 end
 
