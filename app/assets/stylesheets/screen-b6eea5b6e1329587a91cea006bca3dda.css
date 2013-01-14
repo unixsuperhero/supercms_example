@@ -1,0 +1,233 @@
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block
+}
+
+body {
+  background: url(/mth/mth_files/bkgr.jpg) repeat-x top #e5dee3;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 62.5%
+}
+
+.tagline {
+  padding: 20px 0;
+  text-align: center;
+  display: block;
+  background-color: #3b3b3b;
+  color: #fff;
+  font-weight: bold;
+  margin: 0;
+  font-size: 36px
+}
+
+#container {
+  background-color: #fff;
+  border-bottom: 7px solid #f68920;
+  border-top: 7px solid #f68920;
+  box-shadow: 0 0 20px #000;
+  font-family: arial;
+  margin: 35px auto;
+  padding: 34px;
+  width: 893px
+}
+
+#container header {
+  overflow: hidden;
+  padding-bottom: 20px
+}
+
+#container header p {
+  margin: 0
+}
+
+#container header .logo {
+  height: 72px;
+  width: 364px;
+  float: left;
+  position: relative
+}
+
+#container header .logo .logoTagline {
+  color: #f68920;
+  font-size: 18px;
+  position: absolute;
+  top: 60px;
+  right: 0px;
+  font-weight: bold
+}
+
+#container header .phoneHeader {
+  color: #484b4b;
+  float: right;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: right;
+  text-indent: 20px;
+  width: 490px
+}
+
+#container header .phoneHeader strong {
+  color: #f68920;
+  font-size: 54px
+}
+
+.banner {
+  height: 404px;
+  position: relative
+}
+
+.banner .bannerText {
+  position: absolute;
+  z-index: 10;
+  background: url(/mth/mth_files/banner_competitors_textbkgr.png) no-repeat;
+  width: 695px;
+  height: 154px;
+  top: 76px
+}
+
+.banner .bannerText p {
+  color: #3b3b3b;
+  font-size: 38px;
+  font-weight: bold;
+  margin: 0;
+  padding: 16px 0 0 20px
+}
+
+.banner .bannerText p strong {
+  color: #f68920;
+  font-size: 62px
+}
+
+.banner .bannerText p strong span {
+  font-size: 40px
+}
+
+.banner .bannerImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1
+}
+
+.boxWrapper .box {
+  background-color: #f9f9f9;
+  color: #3b3b3b;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 17px;
+  height: 390px;
+  width: 285px
+}
+
+.boxWrapper .box ul {
+  margin: 0
+}
+
+.boxWrapper .box h2 {
+  margin: 0 0 30px 0;
+  padding: 20px 0 20px 20px;
+  border-bottom: 2px solid #0299d3;
+  border-top: 5px solid #0299d3;
+  color: #000
+}
+
+.boxWrapper .box1 {
+  float: left
+}
+
+.boxWrapper .box1 ul {
+  list-style: none;
+  text-align: center;
+  margin: 0 20px;
+  padding: 0
+}
+
+.boxWrapper .box1 ul li {
+  float: left;
+  width: 120px;
+  margin: 0 0 20px 0
+}
+
+.boxWrapper .box1 ul li p {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-weight: bold
+}
+
+.boxWrapper .box2 {
+  margin: 0 auto
+}
+
+.boxWrapper .box2 ul {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 20px;
+  list-style: none;
+  margin: 0 25px;
+  padding: 0
+}
+
+.boxWrapper .box2 ul li {
+  margin-bottom: 22px
+}
+
+.boxWrapper .box3 {
+  float: right
+}
+
+.boxWrapper .box3 ul {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 20px;
+  list-style: none;
+  margin: 0 25px;
+  padding: 0
+}
+
+.boxWrapper .box3 ul li {
+  margin-bottom: 22px
+}
+
+footer {
+  margin-top: 20px;
+  overflow: hidden;
+  position: relative
+}
+
+footer .footerPhone {
+  color: #383b3d;
+  font-size: 36px;
+  float: left;
+  width: 294px
+}
+
+footer .footerPhone p {
+  margin: 0;
+  padding: 0;
+  font-weight: bold
+}
+
+footer .footerPhone p strong {
+  color: #f68920
+}
+
+footer .disclaimer {
+  color: #4f4f51
+}
+
+footer .disclaimer p {
+  margin-bottom: 30px
+}
+
+footer .disclaimer a {
+  color: #4f4f51;
+  text-decoration: none
+}
+
+.flags {
+  float: right;
+  margin-top: -54px
+}
+
+.flags img {
+  margin-left: 5px
+}

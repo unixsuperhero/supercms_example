@@ -1,4 +1,12 @@
 Scms::Application.routes.draw do
+
+  get '/editor/super_editor' => 'application#super_editor'
+  get '/editor/image_modal' => 'application#image_modal'
+  post '/save' => 'application#save'
+  get '/:slug' => 'application#show'
+
+  root :to => 'application#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

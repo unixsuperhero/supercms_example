@@ -1,0 +1,20 @@
+<div id="super_settings">
+  URL of Image:
+  <div class="super_spacer"></div>
+  <input id="super_image_source" type="text" name="image_url" size="80" />
+  <div class="super_spacer"></div>
+  <button id="super_image_apply_button">Apply</button> <button id="super_image_cancel_button">Cancel</button>
+  <div class="super_spacer"></div>
+  <img id="super_image_preview" src="about:blank" alt="new image" />
+  <script type="text/javascript">
+    $('#super_image_apply_button').click(function(){
+      super_image_source = $('#super_image_source').val();
+      $(SUPER_ELEMENT).attr('src', super_image_source);
+      $('#super_settings').hide();
+    });
+
+    $('#super_image_cancel_button').click(function(){
+      $('#super_settings').hide();
+    });
+  </script>
+</div>

@@ -1,0 +1,72 @@
+
+#super_settings {
+  display: none;
+  position:          fixed;
+  top:               280px;
+  left:              10%;
+  width:             80%;
+  height:            400px;
+  z-index:           100;
+  background-color:  rgba(250,250,250,0.9);
+  text-align: center;
+  overflow: scroll;
+  padding: 10px;
+}
+
+#super_image_preview {
+  display: none;
+}
+
+.super_spacer {
+  height: 10px;
+}
+
+.superedit:hover {
+  background-color: rgba(200,200,200,0.5);
+}
+
+.superimg:hover {
+  background-color: rgba(200,200,200,0.5);
+}
+
+.superitem:hover {
+  background-color: rgba(200,200,200,0.2);
+}
+
+/************************
+ * Add Settings Box to  *
+ * the top of the page. *
+ ************************/
+body { padding-top: 220px; }
+#super_editor_settings {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background-color: lightblue;
+  z-index: 2000;
+  padding: 14px;
+}
+
+#super_editor_settings h2 {
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+#super_editor_settings .col {
+  float: left;
+  height: 100%;
+  width: 30%;
+}
+
+#super_editor_settings .col.last-col {
+  text-align: right;
+}
+
+span.super_overlay {
+  background-color: black;
+}
+
+
