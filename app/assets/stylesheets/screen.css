@@ -3,7 +3,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 body {
-  background: url(/mth/mth_files/bkgr.jpg) repeat-x top #e5dee3;
+  background: url(/assets/bkgr.jpg) repeat-x top #e5dee3;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 62.5%
 }
@@ -78,7 +78,7 @@ body {
 .banner .bannerText {
   position: absolute;
   z-index: 10;
-  background: url(/mth/mth_files/banner_competitors_textbkgr.png) no-repeat;
+  background: url(/assets/banner_competitors_textbkgr.png) no-repeat;
   width: 695px;
   height: 154px;
   top: 76px
