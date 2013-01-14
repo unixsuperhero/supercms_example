@@ -2,6 +2,7 @@ SUPER_ELEMENT = null
 SUPER_ITEM_ELEMENT = null
 SUPER_IMAGE_TIMER = null
 super_old_border = null
+var fetch = true
 $(document).ready( function(){
   USE_SUPER_POWERS = function() {
     $('a').click(function(){return false;});
@@ -27,20 +28,23 @@ $(document).ready( function(){
       }
     }
 
-    $.get('/editor/super_editor').complete(function(x,d,other) {
-      $('body').prepend(x.responseText);
-    });
-
-    $.get('/editor/image_modal').complete(function(x,d,other) {
-      append_return_value = $('body').append(x.responseText);
-      $('#super_image_source').keyup(function(ev) {
-        if(SUPER_IMAGE_TIMER != null) {
-          clearTimeout(SUPER_IMAGE_TIMER)
-          SUPER_IMAGE_TIMER = null;
-        }
-        SUPER_IMAGE_TIMER = setTimeout(update_image_preview_timer, 500);
+    if(fetch == true) {
+      $.get('/editor/super_editor').complete(function(x,d,other) {
+        $('body').prepend(x.responseText);
       });
-    });
+
+      $.get('/editor/image_modal').complete(function(x,d,other) {
+        append_return_value = $('body').append(x.responseText);
+        $('#super_image_source').keyup(function(ev) {
+          if(SUPER_IMAGE_TIMER != null) {
+            clearTimeout(SUPER_IMAGE_TIMER)
+            SUPER_IMAGE_TIMER = null;
+          }
+          SUPER_IMAGE_TIMER = setTimeout(update_image_preview_timer, 500);
+        });
+      });
+      fetch = false
+    }
 
     //settings_container = '<div id="super_settings">&nbsp;</div>';
     //append_return_value = $('body').append(settings_container);
@@ -207,6 +211,16 @@ $('[skip-save]').removeAttr('skip-save');
 console.log(post_data);
 $.post('/', post_data);
 return post_data;
+};
+
+SAVE_EVERYTHING = function() {
+  $.post('/save', {
+    page: {
+      source: ['<!DOCTYPE html><html>',$('html').html(),'</html>'].join(''),
+      title: $('#supertitle').val(),
+      slug: $('#superslug').val()
+    }
+  });
 };
 
 setTimeout(function() {
