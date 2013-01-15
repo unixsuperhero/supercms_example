@@ -1,0 +1,14 @@
+<% x = 11 %>
+Hello world,
+<br/>
+before running the proc.
+<br/>
+Here is x for fun: <%= x %>
+<br/>
+<br/>
+<% the_proc = ->() do %>
+  Hello world: <%= x %>
+  <%= 'End of a' %>
+<% end %>
+
+the_proc = &quot;<%= the_proc.source_location %>&quot;
