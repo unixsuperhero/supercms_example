@@ -7,17 +7,19 @@ $(document).ready( function(){
   USE_SUPER_POWERS = function() {
     $('a').click(function(){return false;});
 
-    $('.superimg').click(function(ev){
-      SUPER_ELEMENT = this
-      if($('#super_settings:hidden')) $('#super_settings').show();
-      $('#super_image_source').focus();
+    $('.superedit').click(function(ev){
+      SUPER_ELEMENT = $(this)
+      switch(this.tagName) {
+        case 'IMG':
+          SUPER_ELEMENT = this
+          if($('#super_settings:hidden')) $('#super_settings').show();
+          $('#super_image_source').focus();
+      }
       return false;
     });
 
     $('.superedit').attr('contentEditable', 'true');
-    $('.superedit').click(function(ev){
-      SUPER_ELEMENT = this
-    });
+    $('img.superedit').removeAttr('contentEditable');
 
     update_image_preview_timer = function() {
       if(super_image_source = $('#super_image_source').val()) {
@@ -81,6 +83,7 @@ $(document).ready( function(){
        ************************************************************/
       SUPER_ITEM_ELEMENT = SUPER_ITEM_ELEMENT || $(this);
       SUPER_ITEM_ELEMENT = $(this);
+      $('#super_item_text_preview').text($(this).text());
       //super_old_border = super_old_border || $(this).css('border');
 
       //SUPER_ITEM_ELEMENT.css({border: super_old_border});
@@ -180,16 +183,16 @@ $('.superitem').each(function(i,e) {
   post_data[super_type] = post_data[super_type] || []
 
   flag_element(e);
-  if($(e).hasClass('superimg')) {
+  if(e.tagName == 'IMG') {
     post_data[super_type].push({super_type: $(e).attr('src')});
   } else if($(e).hasClass('superedit')) {
     post_data[super_type].push({super_type: $(e).html()});
-  } else if($(e).find('.superedit,.superimg').length > 0) {
+  } else if($(e).find('.superedit').length > 0) {
     temp_elem = {};
-    $(e).find('.superedit,.superimg').each(function(ii,ee) {
+    $(e).find('.superedit').each(function(ii,ee) {
       flag_element(ee);
       temp_type = $(ee).attr('super-type')
-      if($(ee).hasClass('superimg'))
+      if(ee.tagName == 'IMG')
         temp_elem[temp_type] = $(ee).attr('src');
       else
         temp_elem[temp_type] = $(ee).html();
@@ -199,10 +202,10 @@ $('.superitem').each(function(i,e) {
   console.log(super_type, post_data[super_type]);
 });
 
-$('.superedit, .superimg').each(function(i,e) {
+$('.superedit').each(function(i,e) {
   if($(e).attr('skip-save') || false) return;
   super_type = $(e).attr('super-type');
-  if( $(e).hasClass('superimg') )
+  if( e.tagName == 'IMG' )
     post_data[super_type] = $(e).attr('src');
   else
     post_data[super_type] = $(e).html();
