@@ -1,6 +1,6 @@
 Scms::Application.routes.draw do
 
-  get '/test' => 'application#variable_test'
+  get '/test' => 'application#test'
 
   get '/editor/super_editor' => 'application#super_editor'
   get '/editor/image_modal' => 'application#image_modal'

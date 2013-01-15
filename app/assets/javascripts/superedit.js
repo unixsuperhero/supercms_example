@@ -7,7 +7,7 @@ $(document).ready( function(){
   USE_SUPER_POWERS = function() {
     $('a').click(function(){return false;});
 
-    $('.superedit').click(function(ev){
+    $('.super_edit').click(function(ev){
       SUPER_ELEMENT = $(this)
       switch(this.tagName) {
         case 'IMG':
@@ -18,8 +18,8 @@ $(document).ready( function(){
       return false;
     });
 
-    $('.superedit').attr('contentEditable', 'true');
-    $('img.superedit').removeAttr('contentEditable');
+    $('.super_edit').attr('contentEditable', 'true');
+    $('img.super_edit').removeAttr('contentEditable');
 
     update_image_preview_timer = function() {
       if(super_image_source = $('#super_image_source').val()) {
@@ -156,10 +156,10 @@ $(document).ready( function(){
 
 post_data = {};
 setup_post_data = function(i,e){
-  st = $(e).attr('super-type')
+  st = $(e).attr('super_name')
   post_data[st] = post_data[st] || $([])
 };
-$('.superitem[super-type]').each(setup_post_data);
+$('.superitem[super_name]').each(setup_post_data);
 
 
 /**** new save ****/
@@ -167,7 +167,7 @@ $('.superitem[super-type]').each(setup_post_data);
 /*
  * loop thru superitems
  * add them and their children to post_data
- *   flag the superedit and imgs to skip later
+ *   flag the super_edit and imgs to skip later
  *
  * then loop thru independent elements,
  *   skipping the ones flagged
@@ -179,36 +179,36 @@ flag_element = function(e) {
 }
 var post_data = {};
 $('.superitem').each(function(i,e) {
-  var super_type = $(e).attr('super-type');
-  post_data[super_type] = post_data[super_type] || []
+  var super_name = $(e).attr('super_name');
+  post_data[super_name] = post_data[super_name] || []
 
   flag_element(e);
   if(e.tagName == 'IMG') {
-    post_data[super_type].push({super_type: $(e).attr('src')});
-  } else if($(e).hasClass('superedit')) {
-    post_data[super_type].push({super_type: $(e).html()});
-  } else if($(e).find('.superedit').length > 0) {
+    post_data[super_name].push({super_name: $(e).attr('src')});
+  } else if($(e).hasClass('super_edit')) {
+    post_data[super_name].push({super_name: $(e).html()});
+  } else if($(e).find('.super_edit').length > 0) {
     temp_elem = {};
-    $(e).find('.superedit').each(function(ii,ee) {
+    $(e).find('.super_edit').each(function(ii,ee) {
       flag_element(ee);
-      temp_type = $(ee).attr('super-type')
+      temp_type = $(ee).attr('super_name')
       if(ee.tagName == 'IMG')
         temp_elem[temp_type] = $(ee).attr('src');
       else
         temp_elem[temp_type] = $(ee).html();
     });
-    post_data[super_type].push(temp_elem)
+    post_data[super_name].push(temp_elem)
   }
-  console.log(super_type, post_data[super_type]);
+  console.log(super_name, post_data[super_name]);
 });
 
-$('.superedit').each(function(i,e) {
+$('.super_edit').each(function(i,e) {
   if($(e).attr('skip-save') || false) return;
-  super_type = $(e).attr('super-type');
+  super_name = $(e).attr('super_name');
   if( e.tagName == 'IMG' )
-    post_data[super_type] = $(e).attr('src');
+    post_data[super_name] = $(e).attr('src');
   else
-    post_data[super_type] = $(e).html();
+    post_data[super_name] = $(e).html();
 });
 $('[skip-save]').removeAttr('skip-save');
 console.log(post_data);
