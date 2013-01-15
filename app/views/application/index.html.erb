@@ -5,9 +5,11 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
   <title>Lorem Ipsum Lorem Ipsum Lorem Ipsum</title>
-  <link href="/assets/screen.css" media="screen" rel="stylesheet" type="text/css">
-  <script src="/assets/jquery.js" type="text/javascript"></script>
-  <script src="/assets/site.js" type="text/javascript"></script>
+  <%= stylesheet_link_tag 'screen' %>
+  <%= javascript_include_tag 'jquery', 'site' %>
+  <% #<link href="/assets/screen.css" media="screen" rel="stylesheet" type="text/css"> %>
+  <% #<script src="/assets/jquery.js" type="text/javascript"></script> %>
+  <% #<script src="/assets/site.js" type="text/javascript"></script> %>
 </head>
 
 <body>
@@ -106,7 +108,9 @@
 
   //]]>
   </script>
-  <script src="/assets/superedit.js" type="text/javascript"></script>
-  <link type="text/css" rel="stylesheet" href="/assets/superedit.css" />
+  <%= javascript_include_tag 'superedit' %>
+  <%= stylesheet_link_tag 'superedit' %>
+  <% #<script src="/assets/superedit.js" type="text/javascript"></script> %>
+  <% #<link type="text/css" rel="stylesheet" href="/assets/superedit.css" /> %>
 </body>
 </html>
