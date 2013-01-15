@@ -1,33 +1,41 @@
 module ApplicationHelper
 
-  def default_image(name)
-    (%w{<img src=""
-      alt="" class="super_edit"
-      super_name="} +
-    [ name, '" />']).join
+  def cms_img(name, from=page_hash)
+    out = from.present?
+    out &&= from[name]
+    raw out ||= yield if block_given?
   end
 
-  def cms_img(name)
-    page.source[name] || default_image(name)
+  def cms_box(name, from=page_hash)
+    out = from.present?
+    out &&= from[name]
+    out ||= yield if block_given?
+    raw out ||= 'Lorem Ipsum'
   end
 
-  def cms_box(name)
-    page.source[name] || 'Lorem Ipsum'
+  def cms_loop(name, from=page_hash, &blk)
+    array = from.present?
+    array &&= from[name]
+    array ||= [{},{}]
+    raw array &&= array.map{ |i,h| yield h }.join
   end
 
-  def cms_loop(name, &blk)
-    array = page.source[name]
-    array ||= ['Lorem One', 'Lorem Two']
-    array.map{ |x| yield x }.join
+  def html_classes(classes=[])
+    raw 'class="' + [classes].flatten.compact.join(' ') + '"'
   end
 
-  def editable(only_class=false)
-    only_class &&= ' class="super_edit" '
-    only_class ||= ' super_edit '
+  def edit_loop(name, classes=[])
+    kls = ['superitem', classes]
+    raw [super_name(name), html_classes(kls)].join(' ')
   end
 
-  def node_name(name)
-    " super_name=\"#{name}\""
+  def editable(name, classes=[])
+    kls = ['super_edit', classes]
+    raw [super_name(name), html_classes(kls)].join(' ')
+  end
+
+  def super_name(name)
+    raw "super_name=\"#{name}\""
   end
 
 end

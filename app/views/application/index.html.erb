@@ -14,17 +14,17 @@
   <div id="container">
     <header>
       <div class="logo">
-        <p><img class="super_edit" super_name="main_logo" src="/assets/logo_mytechhelp.png" alt="logo_mytechhelp"></p>
-        <p class="super_edit logoTagline" super_name="brand_tag_line">FOR BRAND NAME GOES HERE</p>
+        <p><img <%= editable('main_logo') %> src="<%= cms_img('main_logo') {'/assets/logo_mytechhelp.png'} %>" alt="logo_mytechhelp"></p>
+        <p <%= editable('brand_tag_line', 'logoTagline') %>><%= cms_box('brand_tag_line') { 'FOR BRAND NAME GOES HERE' } %></p>
       </div>
 
       <div class="phoneHeader">
-        <p class="super_edit" super_name="message-1">For Instant Android Support Call Now</p>
+        <p <%= editable('message-1') %>><%= cms_box('message-1'){ 'For Instant Android Support Call Now' } %></p>
         <p><strong>(888)-000-0000</strong></p>
       </div>
     </header>
 
-    <h1 class="super_edit tagline" super_name="tagline">Lorem Ipsum Dolor Sit Amet</h1>
+    <h1 <%= editable('tagline', 'tagline') %>><%= cms_box('tagline') { 'Lorem Ipsum Dolor Sit Amet' } %></h1>
 
     <div class="banner">
       <div class="bannerText">
@@ -39,62 +39,39 @@
 
     <div class="boxWrapper">
       <div class="box box1">
-        <h2 class="super_edit" super_name="col1header">Lorem Ipsum</h2>
+        <h2 <%= editable('col1header') %>><%= cms_box('col1header') { 'Josh Col1 Header' } %></h2>
 
         <ul>
-          <li class="superitem" super_name="chat_list">
-            <img alt="icon" height="47" src="/assets/icon.png" width="47">
-            <p class="super_edit" super_name="chat-brand">HTC</p>
-          </li>
-
-          <li class="superitem" super_name="chat_list">
-            <img alt="icon" height="47" src="/assets/icon.png" width="47">
-            <p class="super_edit" super_name="chat-brand">Panasonic</p>
-          </li>
-
-          <li class="superitem" super_name="chat_list">
-            <img alt="icon" height="47" src="/assets/icon.png" width="47">
-            <p class="super_edit" super_name="chat-brand">LG</p>
-          </li>
-
-          <li class="superitem" super_name="chat_list">
-            <img alt="icon" height="47" src="/assets/icon.png" width="47">
-            <p class="super_edit" super_name="chat-brand">Motorola</p>
-          </li>
-
-          <li class="superitem" super_name="chat_list">
-            <img alt="icon" height="47" src="/assets/icon.png" width="47">
-            <p class="super_edit" super_name="chat-brand">Samsung</p>
-          </li>
-
-          <li class="superitem" super_name="chat_list">
-            <img alt="icon" height="47" src="/assets/icon.png" width="47">
-            <p class="super_edit" super_name="chat-brand">Sony</p>
-          </li>
+          <% cms_loop('chat_list') do |x| %>
+            <li <%= edit_loop('chat_list') %>>
+              <img alt="icon" height="47" src="/assets/icon.png" width="47">
+              <p <%= editable('chat_brand') %>><%= cms_box('chat_brand', x){ 'HTC' } %></p>
+            </li>
+          <% end %>
         </ul>
       </div>
 
       <div class="box box3">
-        <h2 class="super_edit" super_name="box2header">Lorem Ipsum</h2>
+        <h2 <%= editable('box2header') %>><%= cms_box('box2header'){ 'Box 2 Header' } %></h2>
 
         <ul>
-          <li class="superitem super_edit textlist" super_name="list_one">Lorem Ipsum</li>
-          <li class="superitem super_edit textlist" super_name="list_one">Lorem Ipsum&nbsp;Lorem Ipsum&nbsp;Lorem&nbsp;</li>
-          <li class="superitem super_edit textlist" super_name="list_one">Lorem Ipsum&nbsp;Lorem Ipsum&nbsp;</li>
-          <li class="superitem super_edit textlist" super_name="list_one">Lorem Ipsum&nbsp;Lorem Ipsum&nbsp;Lorem Ipsum&nbsp;</li>
-          <li class="superitem super_edit textlist" super_name="list_one">Lorem Ipsum&nbsp;Lorem Ipsum&nbsp;Lorem Ipsum&nbsp;Lorem Ipsum&nbsp;</li>
+          <% cms_loop('list_one') do |x| %>
+            <li <%= edit_loop('list_one', 'super_edit textlist') %>>
+              <%= cms_box('list_one', x) { 'JOSH JOSH' } %>
+            </li>
+          <% end %>
         </ul>
       </div>
 
       <div class="box box2">
-        <h2 class="super_edit" super_name="col3header">Lorem Ipsum</h2>
+        <h2 <%= editable("col3header") %>><%= cms_box('col3header'){ 'Box 2 Header' } %></h2>
 
         <ul>
-          <li class="superitem super_edit textlist" super_name="list_two">Lorem Ipsum&nbsp;Lorem Ipsum&nbsp;</li>
-          <li class="superitem super_edit textlist" super_name="list_two">Lorem Ipsum&nbsp;Lorem Ipsum&nbsp;Lorem Ipsum&nbsp;</li>
-          <li class="superitem super_edit textlist" super_name="list_two">Lorem Ipsum&nbsp;Lorem Ipsum&nbsp;Lorem Ipsum&nbsp;Lorem</li>
-          <li class="superitem super_edit textlist" super_name="list_two">Lorem Ipsum&nbsp;</li>
-          <li class="superitem super_edit textlist" super_name="list_two">Lorem Ipsum&nbsp;Lorem Ipsum&nbsp;Lorem Ipsum&nbsp;Lorem Ipsum&nbsp;</li>
+          <% cms_loop('list_two') do |x| %>
+            <li <%= edit_loop('list_two', 'super_edit textlist') %>>
+              <%= cms_box('list_two', x) { 'Josh2 Josh2' } %>
+            </li>
+          <% end %>
         </ul>
       </div>
     </div>
