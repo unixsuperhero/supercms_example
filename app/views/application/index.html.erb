@@ -108,9 +108,11 @@
 
   //]]>
   </script>
-  <%= javascript_include_tag 'superedit' %>
-  <%= stylesheet_link_tag 'superedit' %>
-  <% #<script src="/assets/superedit.js" type="text/javascript"></script> %>
-  <% #<link type="text/css" rel="stylesheet" href="/assets/superedit.css" /> %>
+  <% unless action_name.to_s == 'show' %>
+    <%= javascript_include_tag 'superedit' %>
+    <%= stylesheet_link_tag 'superedit' %>
+    <% #<script src="/assets/superedit.js" type="text/javascript"></script> %>
+    <% #<link type="text/css" rel="stylesheet" href="/assets/superedit.css" /> %>
+  <% end %>
 </body>
 </html>
