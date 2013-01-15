@@ -1,14 +1,11 @@
-<% x = 11 %>
-Hello world,
+<h2>Testing the CMS Loop</h2>
 <br/>
-before running the proc.
-<br/>
-Here is x for fun: <%= x %>
-<br/>
-<br/>
-<% the_proc = ->() do %>
+
+<% cms_loop([1,2,3,4]) do |x| %>
   Hello world: <%= x %>
-  <%= 'End of a' %>
+  <br/>
 <% end %>
 
-the_proc = &quot;<%= the_proc.source_location %>&quot;
+<br/>
+Done!?!?
+
