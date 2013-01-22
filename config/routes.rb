@@ -1,13 +1,18 @@
 Scms::Application.routes.draw do
 
-  get '/test' => 'application#test'
+  devise_for :admins
 
-  get '/editor/super_editor' => 'application#super_editor'
-  get '/editor/image_modal' => 'application#image_modal'
-  post '/save' => 'application#save'
-  get '/lookup/:slug' => 'application#show'
+  authenticate :admin do
+    get '/test' => 'application#test'
 
-  root :to => 'application#index'
+    get '/editor/super_editor' => 'application#super_editor'
+    get '/editor/image_modal' => 'application#image_modal'
+    post '/save' => 'application#save'
+    get '/lookup/:slug' => 'application#show'
+
+    root :to => 'application#index'
+  end
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
